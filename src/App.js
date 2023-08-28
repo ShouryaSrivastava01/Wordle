@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+// import Test from "./Testing";
+// import Test2 from "./Test2";
+import { useEffect, useState } from "react";
+import Wordle from "./Wordle";
 
-function App() {
+export default function App() {
+  const wordList = [
+    "apple",
+    "banana",
+    "cherry",
+    "grape",
+    "orange",
+    "kiwi",
+    "lemon",
+    "pear"
+  ];
+
+  const [hiddenWord, setHiddenWord] = useState("");
+
+  useEffect(() => {
+    pickRandomWord();
+  }, []);
+
+  const pickRandomWord = () => {
+    const randomIndex = Math.floor(Math.random() * wordList.length);
+    setHiddenWord(wordList[randomIndex].toLowerCase());
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{hiddenWord}</h1>
+      <Wordle solution={hiddenWord} />
     </div>
   );
 }
 
-export default App;
