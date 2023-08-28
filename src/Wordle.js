@@ -28,9 +28,8 @@ export default function Wordle({ solution }) {
   }, [isCorrect, turn])
   
   return (
-    <div>
+    <div className="wordle">
       {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} />}
-      <div>Current Guess - {currentGuess}</div>
       <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} len={len}/>
       {/* <Keypad keys={keys} usedKeys={usedKeys} handleKeyClick={handleKeyClick}/> */}
 
@@ -64,8 +63,15 @@ export default function Wordle({ solution }) {
 
       {letters && letters.slice(19).map(l => {
         const color = usedKeys[l.key]
+        const content = l.key === 'Backspace' ? '⌫' : l.key;
         return (
-          <div key={l.key} className={`key ${color}`}>   <button onClick={() => handleKeyup(`${l.key}`)}>{l.key}</button></div>
+          
+          <div key={l.key} className={`key ${color}`} style={{ width: l.key === 'Backspace' || l.key === 'Enter' ? '10%' : '7%' }}>
+            
+            <button onClick={() => handleKeyup(`${l.key}`)}> 
+              {content}
+              
+            </button></div>
           
           )
         })}

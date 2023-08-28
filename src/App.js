@@ -28,7 +28,7 @@ export default function App() {
   };
   return (
     <div className="App">
-      <h1>{hiddenWord}</h1>
+      <h1>Wordle </h1>
       <Wordle solution={hiddenWord} />
     </div>
   );
