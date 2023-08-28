@@ -82,20 +82,48 @@ code {
   }
 }
 
-.keypad > div.green {
+
+.keypad {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.key{
+  display: flex;
+  width: 10%;
+  height: 33%;
+}
+
+.keypad button{
+  background:none;
+  border: none;
+}
+
+.key-row{
+  display: flex;
+}
+
+.keypad .green {
   background: #5ac85a;
   color: #fff;
   transition: all 0.3s ease-in;
+ 
 }
-.keypad > div.yellow {
+.keypad .yellow {
   background: #e2cc68;
   color: #fff;
   transition: all 0.3s ease-in;
+  display: flex;
+    width: 10%;
+    height: 33%;
 }
-.keypad > div.grey {
+.keypad .grey {
   background: #a1a1a1;
   color: #fff;
   transition: all 0.3s ease-in;
+  display: flex;
+    width: 10%;
+    height: 33%;
 }
 
 

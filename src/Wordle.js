@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import useWordle from "./hooks/useWordle";
-import Keypad from './Keyboard'
 import keys from '../src/utils/Key'
 import Grid from "./Grid";
 import Modal from "./utils/Modal";
@@ -11,28 +10,71 @@ export default function Wordle({ solution }) {
     solution
   );
   const [showModal, setShowModal] = useState(false)
-    
+  const [letters, setLetters] = useState(null)
+  
   useEffect(() => {
-    window.addEventListener('keyup', handleKeyup)
+    setLetters(keys)
+  }, [])
 
+  
+  useEffect(() => {
     if (isCorrect) {
       setTimeout(() => setShowModal(true), 2000)
-      window.removeEventListener('keyup', handleKeyup)
     }
     if (turn > 5) {
       setTimeout(() => setShowModal(true), 2000)
-      window.removeEventListener('keyup', handleKeyup)
     }
 
-    return () => window.removeEventListener('keyup', handleKeyup)
-  }, [handleKeyup, isCorrect, turn])
+  }, [isCorrect, turn])
   
   return (
     <div>
       {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} />}
       <div>Current Guess - {currentGuess}</div>
       <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} len={len}/>
-      <Keypad keys={keys} usedKeys={usedKeys}/>
+      {/* <Keypad keys={keys} usedKeys={usedKeys} handleKeyClick={handleKeyClick}/> */}
+
+      
+
+
+      <div className="keypad">
+        
+    <div className="key-row">
+
+      {letters && letters.slice(0,10).map(l => {
+        const color = usedKeys[l.key]
+        return (
+          <div key={l.key} className={`key ${color}`}>   <button onClick={() => handleKeyup(`${l.key}`)}>{l.key}</button></div>
+          
+          )
+        })}
+        </div>
+      
+        <div  className="key-row">
+
+      {letters && letters.slice(10,19).map(l => {
+        const color = usedKeys[l.key]
+        return (
+          <div key={l.key} className={`key ${color}`}>   <button onClick={() => handleKeyup(`${l.key}`)}>{l.key}</button></div>
+          
+          )
+        })}
+        </div>
+        <div  className="key-row">
+
+      {letters && letters.slice(19).map(l => {
+        const color = usedKeys[l.key]
+        return (
+          <div key={l.key} className={`key ${color}`}>   <button onClick={() => handleKeyup(`${l.key}`)}>{l.key}</button></div>
+          
+          )
+        })}
+        
+        </div>
+
+        
+    </div>
+
     </div>
   );
 }
