@@ -3,7 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .App-logo {
@@ -119,9 +119,6 @@
   }
 }
 
-.row p{
-  background-color: grey;
-}
 
 .letter{
   border: 1px solid red;

@@ -68,11 +68,9 @@ export default function App() {
 
   return (
     <div className="App">
-      <div> <h1>Wordle </h1></div>
+      <div style={{margin:"10px 2px"}}> <h1>Wordle </h1></div>
       <Wordle solution={hiddenWord} />
-      <div>
-        <img src={footer} alt="footer" style={{height:"50px", width:"60px"}}/>
-      </div>
+      
     </div>
   );
 }

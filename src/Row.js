@@ -26,7 +26,7 @@ export default function Row({ currentGuess, guess, len }) {
           </p>
         ))}
         {[...Array(len - letters.length)].map((_,i) => (
-            <p key={i} className="filled letter"  style={{background:"grey"}}> &nbsp;</p>
+            <p key={i} className="filled letter"> &nbsp;</p>
             ))}
        
       </div>

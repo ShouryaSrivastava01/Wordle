@@ -68,7 +68,7 @@ export default function Wordle({ solution }) {
           
           <div key={l.key} className={`key ${color}`} style={{ width: l.key === 'Backspace' || l.key === 'Enter' ? '15%' : '7%' }}>
             
-            <button onClick={() => handleKeyup(`${l.key}`)} style={{ fontSize: l.key === 'Backspace' || l.key === 'Enter' ? '15px' : '20px' }}> 
+            <button onClick={() => handleKeyup(`${l.key}`)} > 
               {content}
               
             </button></div>
