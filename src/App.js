@@ -3,7 +3,6 @@ import "./App.css";
 // import Test2 from "./Test2";
 import { useEffect, useState } from "react";
 import Wordle from "./Wordle";
-import { fetchWords } from "./service/api";
 import footer from './assets/images/SHOURYA-nobg.png'
 
 export default function App() {
