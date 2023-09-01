@@ -71,7 +71,7 @@ export default function App() {
       <div style={{margin:"10px 2px"}}> <h1>Wordle </h1></div>
       <Wordle solution={hiddenWord} />
       <div className="footer">
-        🕹️<a href="https://shouryasrivastava001.netlify.app">Shourya Srivastava</a>
+        🕹️<a href="https://shouryasrivastava001.netlify.app" target="_blank" rel="noopener noreferrer">Shourya Srivastava</a>
       </div>
       
     </div>
