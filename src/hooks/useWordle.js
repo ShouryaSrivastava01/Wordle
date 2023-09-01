@@ -92,6 +92,7 @@ const useWordle = (solution) => {
       // only add guess if turn is less than 5
       if (turn > 5) {
         console.log("you used all your guesses!");
+        isCorrect(false);
         return;
       }
       // do not allow duplicate words
